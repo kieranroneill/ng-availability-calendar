@@ -3,9 +3,9 @@ $(function () {
     var axisy = ['Mon', 'Tues', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     var axisx = ['12am', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12pm', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
     var data = [
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0], // Mon.
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0], // Mon.
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0], // Tues.
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0], // Wed.
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 0, 0, 0, 0], // Wed.
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0], // Thu.
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0], // Fri.
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // Sat.
@@ -32,7 +32,7 @@ $(function () {
 
       switch(status)
       {
-        case 1: // Provisionally booked.
+        case -1: // Provisionally booked.
           attrs.fill = '#f1c40f';
 
           break;
@@ -80,7 +80,13 @@ $(function () {
             if(this.data('status') === 1)
             {
               this.attr(getAvailabilityAttrs(-1));
-            };
+              this.data('status', -1);
+            }
+            else if(this.data('status') === -1)
+            {
+              this.attr(getAvailabilityAttrs(1));
+              this.data('status', 1);
+            }
           });
 
           dot[0].onmouseover = function ()
