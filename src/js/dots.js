@@ -73,7 +73,7 @@ $(function () {
           var size = Math.round(axisXLabelWidth / 2) - ((status === 0) ? 6.5 : 2.5);
           var dot = raphael.circle(xPosition, yPosition, size);
 
-          dot.attr(getAvailabilityAttrs(hour));
+          dot.attr(getAvailabilityAttrs(status));
           dot.data('status', status);
           dot.click(function()
           {
