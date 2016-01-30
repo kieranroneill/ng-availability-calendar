@@ -1,0 +1,16 @@
+{
+  "name": "ng-availability-calendar",
+  "homepage": "https://github.com/kieranroneill/ng-availability-calendar",
+  "authors": [
+    "Kieran O'Neill <kieranroneill@googlemail.com>"
+  ],
+  "description": "Angular 1.x module that allows you to add an availability calendar to you web app.",
+  "main": "./dist/ng-availability-calendar.min.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}
