@@ -1,9 +1,14 @@
 'use strict';
 
 module.exports = {
+    FileName: {
+        unminified: 'ng-availability-calander.js',
+        minified: 'ng-availability-calander.min.js'
+    },
+
     Paths: {
-        main: './src/ng-availability-calendar.js',
-        watch: './src/ng-availability-calendar.js',
+        main: './src/**/*.js',
+        watch: './src/**/*.js',
         dist: './dist'
     }
 };

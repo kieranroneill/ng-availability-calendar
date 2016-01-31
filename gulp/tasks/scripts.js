@@ -1,9 +1,10 @@
 'use strict';
 
-var Config = require('../config');
+var config = require('../config');
 
-var rename = require('gulp-rename');
-var merge = require('merge-stream');
+var concat = require('gulp-concat');
+var iife = require('gulp-iife');
+var streamqueue = require('streamqueue');
 var uglify = require('gulp-uglify');
 
 module.exports = function(gulp) {
@@ -11,13 +12,15 @@ module.exports = function(gulp) {
      * Copies the scripts and minfies the production.
      */
     gulp.task('scripts', function () {
-        var minifiedStream = gulp.src(Config.Paths.main)
-            .pipe(uglify({ 'mangle': false, preserveComments: false }))
-            .pipe(rename({ suffix: '.min' }))
-            .pipe(gulp.dest(Config.Paths.dist));
-        var devStream = gulp.src(Config.Paths.main)
-            .pipe(gulp.dest(Config.Paths.dist));
+        var minifiedStream = gulp.src(config.Paths.main)
+            .pipe(concat(config.FileName.minified))
+            .pipe(iife())
+            .pipe(uglify({ 'mangle': false, preserveComments: false }));
+        var devStream = gulp.src(config.Paths.main)
+            .pipe(concat(config.FileName.unminified))
+            .pipe(iife());
 
-        return merge(minifiedStream, devStream);
+        return streamqueue({ objectMode: true }, minifiedStream, devStream)
+            .pipe(gulp.dest(config.Paths.dist));
     });
 };
