@@ -11,6 +11,15 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components"
-  ]
+    "bower_components",
+    "test*",
+    "demo*",
+    "gulp/*",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "angular": "^1.4.9",
+    "raphael": "^2.1.4"
+  }
 }
