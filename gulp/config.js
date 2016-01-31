@@ -2,13 +2,14 @@
 
 module.exports = {
     FileName: {
-        unminified: 'ng-availability-calander.js',
-        minified: 'ng-availability-calander.min.js'
+        unminified: 'ng-availability-calender.js',
+        minified: 'ng-availability-calender.min.js'
     },
 
     Paths: {
         main: './src/**/*.js',
         watch: './src/**/*.js',
-        dist: './dist'
+        dist: './dist',
+        karmaConf: __dirname + '/../karma.conf.js'
     }
 };

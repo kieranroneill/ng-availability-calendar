@@ -1,7 +1,7 @@
 'use strict';
 
-// Use: 'gulp dist'
-require('./gulp/tasks/environment/dist')();
+// Use: 'gulp build'
+require('./gulp/tasks/environment/build')();
 
 // Use: 'gulp watch'
 require('./gulp/tasks/environment/watch')();

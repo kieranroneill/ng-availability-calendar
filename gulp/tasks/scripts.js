@@ -1,11 +1,11 @@
 'use strict';
 
-var config = require('../config');
-
 var concat = require('gulp-concat');
 var iife = require('gulp-iife');
 var streamqueue = require('streamqueue');
 var uglify = require('gulp-uglify');
+
+var config = require('../config');
 
 module.exports = function(gulp) {
     /**

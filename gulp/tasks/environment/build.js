@@ -3,11 +3,11 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
-var clean = require('../clean')(gulp);
-var scripts = require('../scripts')(gulp);
+require('../clean')(gulp);
+require('../scripts')(gulp);
 
 module.exports = function() {
-    gulp.task('dist', function(done) {
+    gulp.task('build', function(done) {
         runSequence(
             ['clean'],
             ['scripts'],

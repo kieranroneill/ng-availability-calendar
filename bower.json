@@ -2,7 +2,7 @@
   "name": "ng-availability-calendar",
   "homepage": "https://github.com/kieranroneill/ng-availability-calendar",
   "authors": [
-    "Kieran O'Neill <kieranroneill@googlemail.com>"
+    "Kieran O'Neill"
   ],
   "description": "Angular 1.x module that allows you to add an availability calendar to you web app.",
   "main": "./dist/ng-availability-calendar.min.js",
@@ -12,14 +12,19 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "test*",
-    "demo*",
-    "gulp/*",
+    "gulp",
+    "src",
+    "test",
+    "demo",
     "gulpfile.js",
+    "karma.conf.js",
     "package.json"
   ],
   "dependencies": {
     "angular": "^1.4.9",
     "raphael": "^2.1.4"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.9"
   }
 }
