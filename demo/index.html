@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html ng-app="ngAvailabilityCalendarDemo">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -8,8 +9,8 @@
         <link rel="stylesheet" href="css/demo.css">
     </head>
 
-    <body>
-        <div id="calendar"></div>
+    <body ng-controller="DemoController">
+        <div ng-availability-calendar options="options"></div>
 
         <!-- Scripts -->
         <script type="text/javascript" src="../bower_components/raphael/raphael.js"></script>

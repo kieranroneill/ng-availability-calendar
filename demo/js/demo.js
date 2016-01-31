@@ -1,3 +1,9 @@
-/**
- * Created by kieran on 30/01/16.
- */
+'use strict';
+
+angular.module('ngAvailabilityCalendarDemo', ['ng-availability-calendar'])
+    .controller('DemoController', [
+        '$scope',
+        function($scope) {
+            $scope.options = {};
+        }
+    ]);

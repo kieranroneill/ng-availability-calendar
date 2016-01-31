@@ -14,11 +14,17 @@ module.exports = function(gulp) {
     gulp.task('scripts', function () {
         var minifiedStream = gulp.src(config.Paths.main)
             .pipe(concat(config.FileName.minified))
-            .pipe(iife())
+            .pipe(iife({
+                params: ['Raphael'],
+                args: ['Raphael']
+            }))
             .pipe(uglify({ 'mangle': false, preserveComments: false }));
         var devStream = gulp.src(config.Paths.main)
             .pipe(concat(config.FileName.unminified))
-            .pipe(iife());
+            .pipe(iife({
+                params: ['Raphael'],
+                args: ['Raphael']
+            }));
 
         return streamqueue({ objectMode: true }, minifiedStream, devStream)
             .pipe(gulp.dest(config.Paths.dist));
