@@ -7,6 +7,7 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
         return {
             restrict: 'AE',
             scope: {
+                weekData: '=',
                 options: '=',
                 onSlotClick: '&'
             },
@@ -14,7 +15,7 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
             controller: function($scope) {
                 var ctrl = this;
 
-                WeekService.week = $scope.week || WeekService.week;
+                WeekService.week = $scope.weekData || WeekService.week;
 
                 ctrl.options = {
                     width: $scope.options.width || 800,

@@ -5,7 +5,7 @@ angular.module('ngAvailabilityCalendarDemo', ['ng-availability-calendar'])
         '$scope',
         function($scope) {
             $scope.options = {};
-            $scope.week = [
+            $scope.weekData = [
                 [-1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, -1, -1, -1, -1, -1], // Mon.
                 [-1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1], // Tues.
                 [-1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, -1, -1, -1, -1, -1], // Wed.
@@ -15,8 +15,12 @@ angular.module('ngAvailabilityCalendarDemo', ['ng-availability-calendar'])
                 [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1] // Sun.
             ];
             $scope.onSlotClick = function(slot) {
+                // If available, provisionally book.
                 if(slot.status === 0) {
                     slot.status = 1;
+                }
+                else if(slot.status === 1) {
+                    slot.status = 0;
                 }
             };
         }

@@ -2,12 +2,6 @@
 "use strict";
 
 var ngAvailabilityCalendar = angular.module('ng-availability-calendar', []);
-ngAvailabilityCalendar.constant('BookingStatus', {
-    NOT_AVAILABLE: -1,
-    AVAILABLE: 0,
-    PROVISIONAL_BOOKING: 1,
-    BOOKED: 2
-});
 ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
     '$timeout',
     'BookingStatus',
@@ -17,6 +11,7 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
         return {
             restrict: 'AE',
             scope: {
+                weekData: '=',
                 options: '=',
                 onSlotClick: '&'
             },
@@ -24,7 +19,7 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
             controller: function($scope) {
                 var ctrl = this;
 
-                WeekService.week = $scope.week || WeekService.week;
+                WeekService.week = $scope.weekData || WeekService.week;
 
                 ctrl.options = {
                     width: $scope.options.width || 800,
@@ -120,6 +115,12 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
         };
     }
 ]);
+ngAvailabilityCalendar.constant('BookingStatus', {
+    NOT_AVAILABLE: -1,
+    AVAILABLE: 0,
+    PROVISIONAL_BOOKING: 1,
+    BOOKED: 2
+});
 ngAvailabilityCalendar.factory('SlotFactory', [
     'BookingStatus',
     function(BookingStatus) {
