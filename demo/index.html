@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="ngAvailabilityCalendarDemo">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Availability Calendar</title>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="css/demo.css">
+    </head>
+
+    <body ng-controller="DemoController">
+        <h1>Availability Calendar Example</h1>
+
+        <div class="calendar-container">
+            <div ng-availability-calendar week-data="weekData" options="options" on-slot-click="onSlotClick"></div>
+
+        </div>
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="../bower_components/raphael/raphael.js"></script>
+        <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="../dist/ng-availability-calendar.js"></script>
+        <script type="text/javascript" src="js/demo.js"></script>
+
+    </body>
+
+</html>

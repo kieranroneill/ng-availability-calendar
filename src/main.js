@@ -1,0 +1,1 @@
+var ngAvailabilityCalendar = angular.module('ng-availability-calendar', []);
