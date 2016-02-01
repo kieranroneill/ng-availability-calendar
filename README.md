@@ -24,7 +24,7 @@ Direct download:
 
 ## Usage
 
-Include ```angular.js```, ```raphael-min.js``` and the ```ng-availability-calendar``` files in the respective order:
+Include ```angular.js```, ```raphael-min.js``` and the ```ng-availability-calendar.js``` files in the respective order:
 
 ```html
 <!-- AngularJS -->
@@ -85,7 +85,7 @@ var onSlotClick = function(slot) {
   console.log(slot.time); // The time of the slot (0-23). Read-only.
 };
 ```
-The parameter ```slot``` passsed in the callback contains the ```slot.status``` property that can be manipulated. Which will in turn change the status of the slot the specified status (-1, 0, 1 or 2).
+The parameter ```slot``` passsed in the callback contains the ```slot.status``` property that can be manipulated. Which will in turn change the status of the slot to the specified status (-1, 0, 1 or 2).
 
 ## License
 
