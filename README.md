@@ -14,13 +14,13 @@ bower install ng-availability-calendar
 ```
 Direct download:
 
-* [minified](https://raw.githubusercontent.com/kieranroneill/ng-availability-calendar/master/dist/ng-availability-calendar.min.js).
-* [uncompressed](https://raw.githubusercontent.com/kieranroneill/ng-availability-calendar/master/dist/ng-availability-calendar.js).
+* [minified](https://raw.githubusercontent.com/kieranroneill/ng-availability-calendar/master/dist/ng-availability-calendar.min.js)
+* [uncompressed](https://raw.githubusercontent.com/kieranroneill/ng-availability-calendar/master/dist/ng-availability-calendar.js)
 
 ## Dependencies
 
-* [AngularJS](https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js).
-* [Raphael.js](https://raw.githubusercontent.com/DmitryBaranovskiy/raphael/master/raphael-min.js).
+* [AngularJS](https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js)
+* [Raphael.js](https://raw.githubusercontent.com/DmitryBaranovskiy/raphael/master/raphael-min.js)
 
 ## Usage
 
