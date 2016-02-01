@@ -4,10 +4,10 @@
   "authors": [
     "Kieran O'Neill"
   ],
-  "description": "Angular 1.x module that allows you to add an availability calendar to you web app.",
+  "description": "Angular 1.x module that allows you to add an availability calendar to your web app.",
   "main": "./dist/ng-availability-calendar.min.js",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -26,5 +26,13 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.4.9"
-  }
+  },
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "angular",
+    "calendar",
+    "raphael"
+  ],
 }
