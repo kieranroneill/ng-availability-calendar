@@ -5,11 +5,24 @@ body {
     background-color: #333;
 }
 
-h1 {
+.bold {
+    font-weight: 600;
+}
+
+h1, p {
+    color: #fff;
     text-align: center;
 }
 
 .calendar-container {
+    width: 800px;
+    text-align: center;
+    margin: 0 auto 5rem auto;
+}
+
+.calendar-container td {
+    color: #fff;
+    width: 33.333%;
     text-align: center;
 }
 
