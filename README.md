@@ -42,7 +42,7 @@ Finally, add the following directive to your HTML:
 ```html
 <ng-availability-calendar week-data="weekData" options="options" on-slot-click="onSlotClick"></ng-availability-calendar>
 ```
-That's all there is to it! :) See [demo](https://github.com/kieranroneill/ng-availability-calendar/tree/master/demo) for a working example.
+That's all there is to it! :) See the [demo](http://element43.xyz/ng-availability-calendar) for a working example.
 
 ## Options
 
