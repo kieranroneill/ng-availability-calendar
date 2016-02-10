@@ -5,6 +5,8 @@ ng-availability-calendar
 
 In need of displaying a swazzy calendar for a project that involved booking, I came across a cool JS library: [Raphael.js](https://github.com/DmitryBaranovskiy/raphael). As my app was built in Angular 1.x, I decided to build a module that builds on the dots example and displays a booking calendar.
 
+Check out a [demo](http://element43.xyz/ng-availability-calendar).
+
 ## Installation
 
 Bower:
@@ -42,7 +44,7 @@ Finally, add the following directive to your HTML:
 ```html
 <ng-availability-calendar week-data="weekData" options="options" on-slot-click="onSlotClick"></ng-availability-calendar>
 ```
-That's all there is to it! :) See the [demo](http://element43.xyz/ng-availability-calendar) for a working example.
+That's all there is to it! :) See the [demo](https://github.com/kieranroneill/ng-availability-calendar/tree/master/demo) for a working example.
 
 ## Options
 
@@ -89,7 +91,7 @@ The parameter ```slot``` passsed in the callback contains the ```slot.status``` 
 
 ## License
 
-Copyright (c) 2014 Kieran O'Neill
+Copyright (c) 2016 Kieran O'Neill
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
