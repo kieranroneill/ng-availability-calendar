@@ -1,14 +1,14 @@
 ;(function(Raphael) {
 "use strict";
 
-var ngAvailabilityCalendar = angular.module('ng-availability-calendar', []);
-ngAvailabilityCalendar.constant('BookingStatus', {
+var ngAvCal = angular.module('ng-availability-calendar', []);
+ngAvCal.constant('BookingStatus', {
     NOT_AVAILABLE: -1,
     AVAILABLE: 0,
     PROVISIONAL_BOOKING: 1,
     BOOKED: 2
 });
-ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
+ngAvCal.directive('ngAvailabilityCalendar', [
     '$timeout',
     'BookingStatus',
     'SlotFactory',
@@ -21,20 +21,24 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
                 options: '=',
                 onSlotClick: '&'
             },
-            template: '<div id="calendar"></div>',
+            template: '<div id="availability-calendar"></div>',
             controller: function($scope) {
                 var ctrl = this;
+                var defaults = {
+                    width: 800,
+                    height: 300,
+                    horizontalGutter: 30,
+                    verticalGutter: 20,
+                    fontFamily: 'Arial, Helvetica, sans-serif',
+                    fontColor: '#e5e5e5'
+                };
 
                 WeekService.week = $scope.weekData || WeekService.week;
 
-                ctrl.options = {
-                    width: $scope.options.width || 800,
-                    height: $scope.options.height || 300,
-                    horizontalGutter: $scope.options.horizontalGutter || 30,
-                    verticalGutter: $scope.options.verticalGutter || 20,
-                    fontFamily: $scope.options.fontFamily || 'Arial, Helvetica, sans-serif',
-                    fontColor: $scope.options.fontColor || '#e5e5e5'
-                };
+                ctrl.options = {};
+
+                angular.extend(ctrl.options, defaults, ($scope.options || {}));
+
                 ctrl.axisXLabelWidth = (ctrl.options.width - ctrl.options.horizontalGutter) / WeekService.timeLabels.length;
                 ctrl.axisYLabelHeight = (ctrl.options.height - ctrl.options.verticalGutter) / WeekService.dayLabels.length;
                 ctrl.textStyling = {
@@ -76,7 +80,7 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
                 };
             },
             link: function(scope, element, attrs, ctrl) {
-                var calendar = Raphael('calendar', ctrl.options.width, ctrl.options.height);
+                var calendar = Raphael('availability-calendar', ctrl.options.width, ctrl.options.height);
 
                 var init = function() {
                     var col, row = 0;
@@ -108,6 +112,7 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
                                 // Return slot wrapper.
                                 var slot = SlotFactory.getInstance(this);
 
+                                // Get it in the digest cycle!
                                 $timeout(function() {
                                     scope.onSlotClick()(slot);
                                 });
@@ -121,7 +126,7 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
         };
     }
 ]);
-ngAvailabilityCalendar.factory('SlotFactory', [
+ngAvCal.factory('SlotFactory', [
     'BookingStatus',
     function(BookingStatus) {
         var Slot = function(element) {
@@ -192,7 +197,7 @@ ngAvailabilityCalendar.factory('SlotFactory', [
         };
     }
 ]);
-ngAvailabilityCalendar.service('WeekService',[
+ngAvCal.service('WeekService',[
     function() {
         this.timeLabels = ['12am', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12pm', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11pm'];
         this.dayLabels = ['Mon', 'Tues', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
