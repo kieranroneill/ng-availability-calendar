@@ -12,8 +12,25 @@
     <body ng-controller="DemoController">
         <h1>Availability Calendar Example</h1>
 
+        <p>Click a slot to get it's status and information.</p>
+
         <div class="calendar-container">
             <div ng-availability-calendar week-data="weekData" options="options" on-slot-click="onSlotClick"></div>
+
+            <table>
+                <tr>
+                    <td class="bold">Status</td>
+                    <td class="bold">Day</td>
+                    <td class="bold">Time</td>
+                </tr>
+
+                <tr>
+                    <td>{{ slot.status | getStatusFilter }}</td>
+                    <td>{{ slot.day | getDayFilter }}</td>
+                    <td>{{ slot.time | getTimeFilter}}</td>
+                </tr>
+
+            </table>
 
         </div>
 
