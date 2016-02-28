@@ -1,4 +1,4 @@
-ngAvailabilityCalendar.factory('SlotFactory', [
+ngAvCal.factory('SlotFactory', [
     'BookingStatus',
     function(BookingStatus) {
         var Slot = function(element) {

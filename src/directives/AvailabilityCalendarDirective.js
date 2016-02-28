@@ -1,4 +1,4 @@
-ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
+ngAvCal.directive('ngAvailabilityCalendar', [
     '$timeout',
     'BookingStatus',
     'SlotFactory',
@@ -11,20 +11,24 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
                 options: '=',
                 onSlotClick: '&'
             },
-            template: '<div id="calendar"></div>',
+            template: '<div id="availability-calendar"></div>',
             controller: function($scope) {
                 var ctrl = this;
+                var defaults = {
+                    width: 800,
+                    height: 300,
+                    horizontalGutter: 30,
+                    verticalGutter: 20,
+                    fontFamily: 'Arial, Helvetica, sans-serif',
+                    fontColor: '#e5e5e5'
+                };
 
                 WeekService.week = $scope.weekData || WeekService.week;
 
-                ctrl.options = {
-                    width: $scope.options.width || 800,
-                    height: $scope.options.height || 300,
-                    horizontalGutter: $scope.options.horizontalGutter || 30,
-                    verticalGutter: $scope.options.verticalGutter || 20,
-                    fontFamily: $scope.options.fontFamily || 'Arial, Helvetica, sans-serif',
-                    fontColor: $scope.options.fontColor || '#e5e5e5'
-                };
+                ctrl.options = {};
+
+                angular.extend(ctrl.options, defaults, ($scope.options || {}));
+
                 ctrl.axisXLabelWidth = (ctrl.options.width - ctrl.options.horizontalGutter) / WeekService.timeLabels.length;
                 ctrl.axisYLabelHeight = (ctrl.options.height - ctrl.options.verticalGutter) / WeekService.dayLabels.length;
                 ctrl.textStyling = {
@@ -66,7 +70,7 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
                 };
             },
             link: function(scope, element, attrs, ctrl) {
-                var calendar = Raphael('calendar', ctrl.options.width, ctrl.options.height);
+                var calendar = Raphael('availability-calendar', ctrl.options.width, ctrl.options.height);
 
                 var init = function() {
                     var col, row = 0;
@@ -98,6 +102,7 @@ ngAvailabilityCalendar.directive('ngAvailabilityCalendar', [
                                 // Return slot wrapper.
                                 var slot = SlotFactory.getInstance(this);
 
+                                // Get it in the digest cycle!
                                 $timeout(function() {
                                     scope.onSlotClick()(slot);
                                 });

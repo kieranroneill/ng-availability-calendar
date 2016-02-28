@@ -1,4 +1,4 @@
-ngAvailabilityCalendar.service('WeekService',[
+ngAvCal.service('WeekService',[
     function() {
         this.timeLabels = ['12am', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12pm', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11pm'];
         this.dayLabels = ['Mon', 'Tues', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
